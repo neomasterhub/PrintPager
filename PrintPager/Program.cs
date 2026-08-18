@@ -3,8 +3,8 @@
 Console.OutputEncoding = Encoding.UTF8;
 
 var blockSize = 6;
-var firstPage = 3;
-var lastPage = 362;
+var firstPage = 1;
+var lastPage = 376;
 var blockPages = blockSize * 4;
 var totalPages = lastPage - firstPage + 1;
 var totalBlocks = (totalPages + blockPages - 1) / blockPages;
@@ -28,6 +28,8 @@ for (var b = 0; b < totalBlocks; b++)
         min += 2;
         max -= 2;
     }
+
+    back.Reverse();
 
     Console.WriteLine($"Блок {b + 1}");
     Console.WriteLine($"  Лицевые: {string.Join(",", front)}");
