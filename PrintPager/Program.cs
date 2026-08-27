@@ -2,9 +2,9 @@
 
 Console.OutputEncoding = Encoding.UTF8;
 
-var blockSize = 8;
-var firstPage = 25;
-var lastPage = 376;
+var blockSize = 6;
+var firstPage = 1;
+var lastPage = 24;
 var blockPages = blockSize * 4;
 var totalPages = lastPage - firstPage + 1;
 var totalBlocks = (totalPages + blockPages - 1) / blockPages;
@@ -29,14 +29,12 @@ for (var b = 0; b < totalBlocks; b++)
         max -= 2;
     }
 
-    back.Reverse();
-
     min = front.Min();
     max = front.Max();
 
-    Console.WriteLine($"Блок {b + 1} ({min / 4 + 1}-{max / 4}, {min}-{max})");
-    Console.WriteLine($"  Лицевые: {string.Join(",", front)}");
-    Console.WriteLine($"  Задние : {string.Join(",", back)}");
+    Console.WriteLine($"Тетрадь {b + 1} ({min / 4 + 1}-{max / 4}, {min}-{max})");
+    Console.WriteLine($"Передние: {string.Join(",", front)}");
+    Console.WriteLine($"Задние  : {string.Join(",", back)}");
 }
 
 void Add(List<int> list, int logicalPage)
